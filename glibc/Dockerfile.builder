@@ -93,6 +93,9 @@ RUN set -ex \
 	&& set -- \
 		rootfs/bin/busybox \
 		rootfs/bin/getconf \
+                /lib/"$(gcc -print-multiarch)"/libdl*.so.* \
+                /lib/"$(gcc -print-multiarch)"/librt*.so.* \
+                /lib/"$(gcc -print-multiarch)"/libutil*.so.* \
 		/lib/"$(gcc -print-multiarch)"/libnss*.so.* \
 # libpthread is part of glibc: http://stackoverflow.com/a/11210463/433558
 		/lib/"$(gcc -print-multiarch)"/libpthread*.so.* \
